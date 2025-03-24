@@ -18,7 +18,7 @@ from pydantic import BaseModel
 
 
 parser = argparse.ArgumentParser(description="Launch the local faiss retriever.")
-parser.add_argument("--index_path", type=str, default="/mnt/local/ii/retriever/patents/patent_index/specter2_IVF100,PQ16.index", help="Corpus indexing file.")
+parser.add_argument("--index_path", type=str, default="/mnt/local/ii/retriever/patents/patents_all_index/specter2_IVF100,PQ16.index", help="Corpus indexing file.")
 parser.add_argument("--corpus_path", type=str, default="/mnt/local/ii/retriever/patents/patents_sample.parquet", help="Local corpus file.")
 parser.add_argument("--topk", type=int, default=3, help="Number of retrieved passages for one query.")
 parser.add_argument("--retriever_model", type=str, default="allenai/specter2_base", help="Name of the retriever model.")
@@ -370,9 +370,9 @@ class Config:
         self, 
         retrieval_method: str = "specter2", 
         retrieval_topk: int = 3,
-        index_path: str = "/mnt/local/ii/retriever/patents/patent_index/specter2_IVF100,PQ16.index",
+        index_path: str = "/mnt/local/ii/retriever/patents/patents_all_index/specter2_IVF100,PQ16.index",
         corpus_path: str = "/mnt/local/ii/retriever/patents/patents_sample.parquet",
-        dataset_path: str = "./data",
+        dataset_path: str = "/mnt/local/ii/retriever/patents/data",
         data_split: str = "train",
         faiss_gpu: bool = True,
         retrieval_model_path: str = "allenai/specter2_base",
